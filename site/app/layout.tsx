@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { LanguageProvider, SkipLink } from '@/lib/i18n';
+import { content } from '@/lib/content';
 export const metadata: Metadata = {
-  title: 'Aşkın Hukuk — Adalet için duruş.',
-  description:
-    'Doğru zamanda, doğru adım doğru hukuk. Aşkın Hukuk Bürosu.',
+  title: content.tr.meta.title,
+  description: content.tr.meta.description,
 };
 export default function RootLayout({
   children,
@@ -11,10 +12,10 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <body>
-        <a className="skip-link" href="#hakkimizda">
-          İçeriğe geç
-        </a>
-        {children}
+        <LanguageProvider>
+          <SkipLink />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

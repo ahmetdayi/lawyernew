@@ -5,60 +5,29 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from '@/components/ui/accordion';
-const areas = [
-  [
-    'Miras Hukuku',
-    'Veraset İlamı, Vasiyetname, Mirastan Feragat, Reddi Miras, Ortaklığın Giderilmesi (İzale-i Şüyu) Davası ve benzeri konularda hukuki destek.',
-  ],
-  [
-    'Kamulaştırma Hukuku',
-    'Kamulaştırma Bedelinin Tespiti ve Tescili, Kamulaştırma İşleminin İptali, Kamulaştırmasız El Atma ve Acele Kamulaştırma Davası gibi süreçlerde hukuki temsil.',
-  ],
-  [
-    'Yabancılar Hukuku',
-    'Vatandaşlık Başvuruları, İkamet-Çalışma İzni, Sınırdışı Kararları, Uluslararası ve Geçici Koruma gibi işlemlerde danışmanlık.',
-  ],
-  [
-    'Gayrimenkul Hukuku',
-    'Taşınmaz işlemleri, kira ilişkileri ve gayrimenkul projelerinde sözleşme ve uyuşmazlık yönetimi.',
-  ],
-  [
-    'Ceza Hukuku',
-    'Soruşturma ve kovuşturma süreçlerinin her aşamasında titiz dosya incelemesi ve savunma hazırlığı.',
-  ],
-  [
-    'Aile Hukuku',
-    'Boşanma, Nafaka, Mal Rejimi Tasfiyesi, Velayet ve Soybağı gibi davalarda hukuki destek.',
-  ],
-  [
-    'Ticaret Hukuku ve Şirketler Hukuku',
-    'Ticari ilişkilerin kuruluşundan uyuşmazlıkların çözümüne kadar, işinizin dinamiklerini gözeten hukuki destek. Şirket kuruluşu, kurumsal yönetim, ortaklık ilişkileri ve sözleşme süreçlerinde bütüncül danışmanlık.',
-  ],
-  [
-    'İş Hukuku',
-    'İşveren ve çalışan ilişkileri, iş sözleşmeleri ve iş uyuşmazlıklarında önleyici hukuki yaklaşım.',
-  ],
-];
+import { useContent } from '@/lib/i18n';
 export default function Expertise() {
+  const t = useContent();
   return (
     <section className="expertise section-pad" id="uzmanlik">
       <div className="section-head reveal">
         <div>
-          <p className="eyebrow">02 / ÇALIŞMA ALANLARIMIZ</p>
+          <p className="eyebrow">{t.expertise.eyebrow}</p>
           <h2>
-            Farklı meseleler.
+            {t.expertise.heading[0]}
             <br />
-            <em>Tek bir titizlik.</em>
+            <em>{t.expertise.heading[1]}</em>
           </h2>
         </div>
-        <p>
-          İhtiyacınızı anlıyor, her alanda aynı özeni ve stratejik bakışı
-          sunuyoruz.
-        </p>
+        <p>{t.expertise.intro}</p>
       </div>
       <Accordion className="expertise-list" multiple>
-        {areas.map(([title, description], i) => (
-          <AccordionItem className="expertise-item" key={title} value={title}>
+        {t.expertise.areas.map(({ title, description }, i) => (
+          <AccordionItem
+            className="expertise-item"
+            key={i}
+            value={String(i)}
+          >
             <AccordionTrigger className="expertise-trigger">
               <span className="expertise-number">
                 {String(i + 1).padStart(2, '0')}

@@ -114,6 +114,42 @@ em {
 .top-bar a:hover {
   color: var(--gold);
 }
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 4px;
+  padding-left: 20px;
+  border-left: 1px solid #ffffff30;
+}
+.lang-flag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: 0;
+  color: #d1c9b8;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  padding: 4px 2px;
+  opacity: 0.55;
+  transition:
+    opacity 0.2s,
+    color 0.2s;
+}
+.flag-icon {
+  width: 18px;
+  height: 13px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.lang-flag:hover {
+  opacity: 0.85;
+}
+.lang-flag.active {
+  opacity: 1;
+  color: var(--gold);
+}
 .site-header {
   width: 100%;
   height: 108px;
@@ -187,11 +223,6 @@ em {
   height: 100svh;
   position: relative;
   background: #1d0306;
-}
-.cinematic-sticky {
-  position: sticky;
-  top: 0;
-  height: 100svh;
   overflow: hidden;
 }
 .scene-image,
@@ -200,6 +231,7 @@ em {
   inset: 0;
 }
 .scene-image {
+  background-image: url('/frames/v3-poster.jpg');
   background-size: cover;
   background-position: 55% 50%;
 }
@@ -268,14 +300,6 @@ em {
   width: 1px;
   height: 37px;
   background: linear-gradient(0deg, #fff, transparent);
-}
-.scene-count {
-  font-size: 14px;
-  letter-spacing: 0.18em;
-}
-.scene-count span {
-  color: var(--gold);
-  margin: 0 13px;
 }
 .scene-note {
   color: #d2c9b9;
@@ -363,6 +387,10 @@ em {
     font-size: 10px;
     flex-wrap: wrap;
   }
+  .lang-switch {
+    margin-left: 0;
+    padding-left: 14px;
+  }
   .site-header {
     height: 84px;
   }
@@ -441,9 +469,6 @@ em {
   .scroll-cue {
     font-size: 10px;
   }
-  .scene-count {
-    font-size: 12px;
-  }
   .section-pad {
     padding: 75px 6%;
   }
@@ -471,132 +496,6 @@ em {
     animation: none !important;
     transition: none !important;
   }
-}
-.cinematic {
-  height: 500svh;
-  --intro: 1;
-  --final: 0;
-  --transition: 0;
-  --progress: 0;
-}
-.scene-image {
-  background-image: url('/frames/v3-poster.jpg');
-}
-.sequence-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-}
-.opening-copy {
-  opacity: var(--intro);
-  transform: translateY(calc((1 - var(--intro)) *-20px));
-  pointer-events: none;
-}
-.final-copy {
-  opacity: var(--final);
-  bottom: 20%;
-  max-width: 440px;
-}
-.final-copy h2 {
-  font-size: clamp(54px, 5vw, 82px);
-}
-.final-description {
-  color: #d1d1c5;
-  font-size: 15px;
-  line-height: 1.8;
-  margin-top: 23px;
-}
-.hero-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 22px;
-  margin-top: 25px;
-}
-.button-outline {
-  display: inline-flex;
-  padding: 16px 23px;
-  border: 1px solid #e3b8689c;
-  align-items: center;
-  gap: 30px;
-  font-size: 13px;
-  transition: background 0.2s;
-}
-.button-outline:hover {
-  background: #d9a94e24;
-}
-.button-outline span {
-  font-size: 20px;
-  color: var(--gold);
-}
-.quiet-link {
-  font-size: 12px;
-  border-bottom: 1px solid #ffffff50;
-  padding-bottom: 5px;
-}
-.story-word {
-  position: absolute;
-  right: 7%;
-  top: 45%;
-  font:
-    italic 60px Georgia,
-    serif;
-  color: #eee8da;
-  opacity: 0;
-  letter-spacing: -0.04em;
-}
-.scene-transition {
-  position: absolute;
-  inset: 0;
-  background: var(--background);
-  opacity: var(--transition);
-  pointer-events: none;
-}
-.sequence-progress {
-  position: absolute;
-  bottom: 0;
-  height: 2px;
-  width: 100%;
-  background: var(--gold);
-  transform: scaleX(var(--progress));
-  transform-origin: left;
-}
-.scene-count > span {
-  color: inherit;
-  margin: 0;
-}
-.scene-count b {
-  font-weight: 400;
-  color: var(--gold);
-  margin: 0 13px;
-}
-.sequence-status {
-  position: absolute;
-  bottom: 90px;
-  left: 4.3%;
-  font-size: 12px;
-  max-width: 300px;
-  color: #dfd4bd;
-}
-.cinematic[data-static='true'] {
-  height: 100svh;
-  --intro: 0;
-  --final: 1;
-}
-.cinematic[data-static='true'] .scene-image {
-  background-image: url('/frames/v3-final.jpg');
-}
-.cinematic[data-static='true'] canvas {
-  display: none;
-}
-.cinematic[data-static='true'] .scroll-label {
-  font-size: 0;
-}
-.cinematic[data-static='true'] .scroll-label:after {
-  content: 'Hukuk büromuzu keşfedin';
-  font-size: 11px;
 }
 .section-head {
   display: flex;
@@ -632,14 +531,15 @@ em {
 }
 .expertise-list {
   border-top: 1px solid #3c070d30;
-  display: block !important;
-  column-count: 2;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, auto);
+  grid-auto-flow: column;
   column-gap: 7%;
 }
 .expertise-item {
   border-bottom: 1px solid #3c070d30 !important;
   padding: 0 !important;
-  break-inside: avoid;
 }
 .expertise-trigger {
   padding: 27px 0 !important;
@@ -750,6 +650,15 @@ em {
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
 }
+.team-card {
+  display: block;
+  width: 100%;
+  background: none;
+  border: 0;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+}
 .team-portrait {
   aspect-ratio: 4/4.3;
   position: relative;
@@ -810,11 +719,27 @@ em {
 .team-info > span {
   font-size: 20px;
   color: var(--gold);
+  transition: transform 0.2s;
+}
+.team-card:hover .team-info > span {
+  transform: translate(3px, -3px);
 }
 .team-role {
   font-size: 12px;
   color: var(--muted);
   margin-top: 9px;
+}
+.team-cta {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #b0959826;
+  transition: color 0.2s;
+}
+.team-card:hover .team-cta {
+  color: #efe0bb;
 }
 .team .demo-note {
   color: #b09d9f;
@@ -925,6 +850,24 @@ em {
   line-height: 1.8;
   color: #e0c7c9;
 }
+.contact-people {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 8%;
+}
+.contact-person {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.contact-name {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #dec3ab;
+  margin-top: 30px;
+}
 .contact-email {
   font-size: 18px;
   display: block;
@@ -1031,51 +974,6 @@ em {
   }
 }
 @media (max-width: 767px) {
-  .cinematic {
-    height: 420svh;
-  }
-  .sequence-canvas {
-    height: 76%;
-    bottom: 24%;
-  }
-  .final-copy {
-    bottom: 14%;
-    max-width: 90%;
-  }
-  .final-copy h2 {
-    font-size: 43px;
-  }
-  .final-copy .eyebrow {
-    margin-bottom: 12px;
-  }
-  .final-description {
-    font-size: 13px;
-    line-height: 1.7;
-    margin-top: 15px;
-  }
-  .hero-actions {
-    margin-top: 18px;
-    gap: 16px;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  .button-outline {
-    padding: 12px 15px;
-    font-size: 11px;
-    gap: 18px;
-  }
-  .quiet-link {
-    font-size: 11px;
-  }
-  .story-word {
-    font-size: 38px;
-    top: 67%;
-    right: 6%;
-  }
-  .scene-count b {
-    margin: 0 8px;
-  }
   .section-head {
     display: block;
     margin-bottom: 35px;
@@ -1087,7 +985,9 @@ em {
     font-size: 40px;
   }
   .expertise-list {
-    column-count: 1;
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-auto-flow: row;
   }
   .expertise-trigger {
     padding: 23px 0 !important;
@@ -1156,6 +1056,10 @@ em {
   .contact-email {
     font-size: 18px;
   }
+  .contact-people {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
   .contact-details {
     max-width: 100%;
   }
@@ -1184,30 +1088,8 @@ em {
   .article-dialog h2 {
     font-size: 30px;
   }
-  .sequence-status {
-    bottom: 85px;
-    font-size: 10px;
-  }
-  .final-copy .eyebrow {
-    font-size: 10px;
-  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .cinematic {
-    height: 100svh;
-  }
-  .opening-copy {
-    opacity: 0;
-  }
-  .final-copy {
-    opacity: 1;
-  }
-  .sequence-canvas {
-    display: none;
-  }
-  .scene-image {
-    background-image: url('/frames/v3-final.jpg');
-  }
   .js-reveals .reveal {
     opacity: 1;
     transform: none;
@@ -1223,14 +1105,6 @@ em {
   }
   .hero-copy .eyebrow {
     margin-bottom: 15px;
-  }
-  .final-description {
-    margin-top: 12px;
-  }
-  .hero-actions {
-    flex-direction: row;
-    align-items: center;
-    margin-top: 15px;
   }
   .scene-bottom {
     bottom: 20px;
