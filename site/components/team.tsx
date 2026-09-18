@@ -24,6 +24,7 @@ export default function Team() {
               <span aria-hidden="true">↗</span>
             </div>
             <p className="team-role">{m.role}</p>
+            <p className="team-bar">{m.bar}</p>
             <p className="team-cta">{t.team.cta}</p>
           </DialogTrigger>
           <DialogContent className="article-dialog" showCloseButton={false}>

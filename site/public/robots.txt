@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lawyernew.ahmet-dayi-ceng.workers.dev/sitemap.xml

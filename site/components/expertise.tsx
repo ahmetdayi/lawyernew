@@ -34,7 +34,7 @@ export default function Expertise() {
               </span>
               <span className="expertise-title">{title}</span>
             </AccordionTrigger>
-            <AccordionContent className="expertise-description">
+            <AccordionContent className="expertise-description" keepMounted>
               {description}
             </AccordionContent>
           </AccordionItem>

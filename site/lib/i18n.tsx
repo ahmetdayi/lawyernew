@@ -36,7 +36,7 @@ export function useContent() {
 export function SkipLink() {
   const t = useContent();
   return (
-    <a className="skip-link" href="#hakkimizda">
+    <a className="skip-link" href="#main">
       {t.meta.skipLink}
     </a>
   );

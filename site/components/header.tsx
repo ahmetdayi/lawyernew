@@ -78,7 +78,7 @@ export default function Header() {
         </div>
       </div>
       <header className="site-header">
-        <a href="#" className="brand" aria-label={t.header.homeAria}>
+        <a href="/" className="brand" aria-label={t.header.homeAria}>
           <span className="brand-symbol">
             <img src="/brand/askin-hukuk-icon.png" alt="" />
           </span>
@@ -100,13 +100,13 @@ export default function Header() {
           aria-label={t.header.mainMenuAria}
         >
           {t.header.nav.map(({ label, id }) => (
-            <a href={'#' + id} key={id} onClick={() => setOpen(false)}>
+            <a href={'/#' + id} key={id} onClick={() => setOpen(false)}>
               {label}
             </a>
           ))}
           <a
             className="nav-contact"
-            href="#iletisim"
+            href="/#iletisim"
             onClick={() => setOpen(false)}
           >
             {t.header.contact} <span>↗</span>

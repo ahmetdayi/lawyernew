@@ -13,10 +13,12 @@ interface TeamMember {
   photo: string;
   name: string;
   role: string;
+  bar: string;
   intro: string;
   paragraphs: string[];
 }
 interface Article {
+  slug: string;
   category: string;
   title: string;
   time: string;
@@ -70,6 +72,7 @@ interface SiteContent {
     heading: string;
     intro: string;
     note: string;
+    back: string;
     articles: Article[];
   };
   contact: {
@@ -80,6 +83,11 @@ interface SiteContent {
     officeTagline: string;
     persons: { name: string; email: string; phone: string }[];
     addressLines: [string, string];
+    mapQuery: string;
+    mapTitle: string;
+    mapOpen: string;
+    kvkkLabel: string;
+    kvkkHref: string;
   };
   footer: {
     homeAria: string;
@@ -93,8 +101,9 @@ interface SiteContent {
 export const content: Record<Lang, SiteContent> = {
   tr: {
     meta: {
-      title: 'Aşkın Hukuk — Adalet için duruş.',
-      description: 'Doğru zamanda, doğru adım doğru hukuk. Aşkın Hukuk Bürosu.',
+      title: 'Aşkın Hukuk Bürosu | Eskişehir Avukat',
+      description:
+        'Eskişehir’de miras, kamulaştırma, yabancılar, gayrimenkul, ceza, aile ve iş hukuku alanlarında hukuki danışmanlık ve temsil. Aşkın Hukuk Bürosu.',
       skipLink: 'İçeriğe geç',
     },
     header: {
@@ -211,6 +220,7 @@ export const content: Record<Lang, SiteContent> = {
           photo: '/team/omer-faruk-askin.jpg',
           name: 'Av. Ömer Faruk Aşkın',
           role: 'Kurucu Ortak',
+          bar: 'Eskişehir Barosu - 3313',
           intro:
             'Bursa doğumlu olup 2023 yılında hukuk eğitimini tamamlamış, 2024 yılından beri Eskişehir’de serbest avukatlık yapmaktadır.',
           paragraphs: [
@@ -222,6 +232,7 @@ export const content: Record<Lang, SiteContent> = {
           photo: '/team/gulsum-burcu-ugur.jpg',
           name: 'Av. Gülsüm Burcu Uğur',
           role: 'Kurucu Ortak',
+          bar: 'Eskişehir Barosu - 3352',
           intro:
             'Eskişehir Barosu’na kayıtlı olarak serbest avukatlık faaliyetini sürdürmekte olup, 2025 yılından bu yana kendi hukuk ofisinde müvekkillerine hizmet vermektedir.',
           paragraphs: [
@@ -241,9 +252,11 @@ export const content: Record<Lang, SiteContent> = {
       eyebrow: '05 / YAYINLAR',
       heading: 'Hukuka dair.',
       intro: 'Hukuk dünyasına dair yazılar & bilgiler',
-      note: 'Bu metin konsept site için hazırlanmış örnek yayın içeriğidir. Somut bir hukuki değerlendirme içermez.',
+      note: 'Bu yazı genel bilgilendirme amacıyla hazırlanmıştır; somut bir olaya ilişkin hukuki değerlendirme veya hukuki danışmanlık niteliği taşımaz.',
+      back: 'Tüm yayınlar',
       articles: [
         {
+          slug: 'miras-hukuku-nedir',
           category: 'MİRAS HUKUKU',
           title: 'Miras Hukuku Nedir?',
           time: '4 dk okuma',
@@ -260,6 +273,7 @@ export const content: Record<Lang, SiteContent> = {
           ],
         },
         {
+          slug: 'kamulastirma-hukuku-nedir',
           category: 'KAMULAŞTIRMA HUKUKU',
           title: 'Kamulaştırma Hukuku Nedir?',
           time: '7 dk okuma',
@@ -277,6 +291,7 @@ export const content: Record<Lang, SiteContent> = {
           ],
         },
         {
+          slug: 'yabancilar-hukuku-nedir',
           category: 'YABANCILAR HUKUKU',
           title: 'Yabancılar Hukuku Nedir?',
           time: '6 dk okuma',
@@ -292,6 +307,7 @@ export const content: Record<Lang, SiteContent> = {
           ],
         },
         {
+          slug: 'gayrimenkul-hukuku-nedir',
           category: 'GAYRİMENKUL HUKUKU',
           title: 'Gayrimenkul Hukuku Nedir?',
           time: '4 dk okuma',
@@ -306,6 +322,7 @@ export const content: Record<Lang, SiteContent> = {
           ],
         },
         {
+          slug: 'aile-hukuku-nedir',
           category: 'AİLE HUKUKU',
           title: 'Aile Hukuku Nedir?',
           time: '4 dk okuma',
@@ -320,6 +337,7 @@ export const content: Record<Lang, SiteContent> = {
           ],
         },
         {
+          slug: 'ceza-hukuku-nedir',
           category: 'CEZA HUKUKU',
           title: 'Ceza Hukuku Nedir?',
           time: '3 dk okuma',
@@ -333,6 +351,7 @@ export const content: Record<Lang, SiteContent> = {
           ],
         },
         {
+          slug: 'aihm-basvurulari-ve-yeniden-yargilama',
           category: 'İNSAN HAKLARI HUKUKU',
           title: 'AİHM Başvuruları ve AİHM Kararları Sonrasında Yeniden Yargılama',
           time: '4 dk okuma',
@@ -369,14 +388,20 @@ export const content: Record<Lang, SiteContent> = {
         'Kurtuluş Mahallesi Cumhuriyet Bulvarı No:76/3',
         'Odunpazarı / ESKİŞEHİR',
       ],
+      mapQuery:
+        'Kurtuluş Mahallesi Cumhuriyet Bulvarı No:76 Odunpazarı Eskişehir',
+      mapTitle: 'Büro konumu — Google Haritalar',
+      mapOpen: 'Google Haritalar’da aç',
+      kvkkLabel: 'KVKK Aydınlatma Metni',
+      kvkkHref: 'https://www.kvkk.gov.tr/Icerik/2033/Aydinlatma-Yukumlulugu-',
     },
     footer: {
       homeAria: 'Başa dön',
       logoAlt: 'Avukat Ömer Faruk Aşkın',
       nav: [
-        { label: 'Hakkımızda', href: '#hakkimizda' },
-        { label: 'Çalışma Alanlarımız', href: '#uzmanlik' },
-        { label: 'İletişim', href: '#iletisim' },
+        { label: 'Hakkımızda', href: '/#hakkimizda' },
+        { label: 'Çalışma Alanlarımız', href: '/#uzmanlik' },
+        { label: 'İletişim', href: '/#iletisim' },
         { label: 'Başa dön ↑', href: '#' },
       ],
       copyright: '© 2026 Aşkın Hukuk.',
@@ -386,9 +411,9 @@ export const content: Record<Lang, SiteContent> = {
   },
   en: {
     meta: {
-      title: 'Aşkın Law — A Stand for Justice.',
+      title: 'Aşkın Law Office | Attorneys in Eskişehir',
       description:
-        'The right step, the right law, at the right time. Aşkın Law Office.',
+        'Legal counsel and representation in Eskişehir, Türkiye: inheritance, expropriation, foreigners’ law, real estate, criminal, family and labor law. Aşkın Law Office.',
       skipLink: 'Skip to content',
     },
     header: {
@@ -505,6 +530,7 @@ export const content: Record<Lang, SiteContent> = {
           photo: '/team/omer-faruk-askin.jpg',
           name: 'Att. Ömer Faruk Aşkın',
           role: 'Founding Partner',
+          bar: 'Eskişehir Bar Association - 3313',
           intro:
             'Born in Bursa, he completed his legal education in 2023 and has been practicing independently in Eskişehir since 2024.',
           paragraphs: [
@@ -516,6 +542,7 @@ export const content: Record<Lang, SiteContent> = {
           photo: '/team/gulsum-burcu-ugur.jpg',
           name: 'Att. Gülsüm Burcu Uğur',
           role: 'Founding Partner',
+          bar: 'Eskişehir Bar Association - 3352',
           intro:
             'She is registered with the Eskişehir Bar Association and has been serving clients at her own law office since 2025.',
           paragraphs: [
@@ -535,9 +562,11 @@ export const content: Record<Lang, SiteContent> = {
       eyebrow: '05 / INSIGHTS',
       heading: 'On the law.',
       intro: 'Articles & insights from the world of law',
-      note: 'This text is sample publication content prepared for a concept site. It does not constitute concrete legal advice.',
+      note: 'This article is provided for general information only; it is not a legal assessment of any specific matter and does not constitute legal advice.',
+      back: 'All publications',
       articles: [
         {
+          slug: 'miras-hukuku-nedir',
           category: 'INHERITANCE LAW',
           title: 'What Is Inheritance Law?',
           time: '4 min read',
@@ -554,6 +583,7 @@ export const content: Record<Lang, SiteContent> = {
           ],
         },
         {
+          slug: 'kamulastirma-hukuku-nedir',
           category: 'EXPROPRIATION LAW',
           title: 'What Is Expropriation Law?',
           time: '7 min read',
@@ -571,6 +601,7 @@ export const content: Record<Lang, SiteContent> = {
           ],
         },
         {
+          slug: 'yabancilar-hukuku-nedir',
           category: 'FOREIGNERS’ LAW',
           title: 'What Is Foreigners’ Law?',
           time: '6 min read',
@@ -586,6 +617,7 @@ export const content: Record<Lang, SiteContent> = {
           ],
         },
         {
+          slug: 'gayrimenkul-hukuku-nedir',
           category: 'REAL ESTATE LAW',
           title: 'What Is Real Estate Law?',
           time: '4 min read',
@@ -600,6 +632,7 @@ export const content: Record<Lang, SiteContent> = {
           ],
         },
         {
+          slug: 'aile-hukuku-nedir',
           category: 'FAMILY LAW',
           title: 'What Is Family Law?',
           time: '4 min read',
@@ -614,6 +647,7 @@ export const content: Record<Lang, SiteContent> = {
           ],
         },
         {
+          slug: 'ceza-hukuku-nedir',
           category: 'CRIMINAL LAW',
           title: 'What Is Criminal Law?',
           time: '3 min read',
@@ -627,6 +661,7 @@ export const content: Record<Lang, SiteContent> = {
           ],
         },
         {
+          slug: 'aihm-basvurulari-ve-yeniden-yargilama',
           category: 'HUMAN RIGHTS LAW',
           title: 'ECtHR Applications and Retrial Following ECtHR Judgments',
           time: '4 min read',
@@ -663,14 +698,20 @@ export const content: Record<Lang, SiteContent> = {
         'Kurtuluş Mahallesi Cumhuriyet Bulvarı No:76/3',
         'Odunpazarı / Eskişehir, Türkiye',
       ],
+      mapQuery:
+        'Kurtuluş Mahallesi Cumhuriyet Bulvarı No:76 Odunpazarı Eskişehir',
+      mapTitle: 'Office location — Google Maps',
+      mapOpen: 'Open in Google Maps',
+      kvkkLabel: 'KVKK Privacy Notice',
+      kvkkHref: 'https://www.kvkk.gov.tr/Icerik/2033/Aydinlatma-Yukumlulugu-',
     },
     footer: {
       homeAria: 'Back to top',
       logoAlt: 'Attorney Ömer Faruk Aşkın',
       nav: [
-        { label: 'About Us', href: '#hakkimizda' },
-        { label: 'Practice Areas', href: '#uzmanlik' },
-        { label: 'Contact', href: '#iletisim' },
+        { label: 'About Us', href: '/#hakkimizda' },
+        { label: 'Practice Areas', href: '/#uzmanlik' },
+        { label: 'Contact', href: '/#iletisim' },
         { label: 'Back to top ↑', href: '#' },
       ],
       copyright: '© 2026 Aşkın Law.',

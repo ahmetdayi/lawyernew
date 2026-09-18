@@ -2,12 +2,14 @@
 import CinematicHero from '@/components/cinematic-hero';
 import Header from '@/components/header';
 import Expertise from '@/components/expertise';
+import Footer from '@/components/footer';
 import Publications from '@/components/publications';
 import Reveals from '@/components/reveals';
 import Team from '@/components/team';
-import { useContent } from '@/lib/i18n';
+import { useContent, useLanguage } from '@/lib/i18n';
 export default function Home() {
   const t = useContent();
+  const { lang } = useLanguage();
   return (
     <>
       <Header />
@@ -111,31 +113,47 @@ export default function Home() {
               <br />
               {t.contact.addressLines[1]}
             </p>
+            <a
+              className="kvkk-link"
+              href={t.contact.kvkkHref}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t.contact.kvkkLabel} <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <div className="contact-map reveal">
+            <iframe
+              title={t.contact.mapTitle}
+              src={
+                'https://maps.google.com/maps?q=' +
+                encodeURIComponent(t.contact.mapQuery) +
+                '&hl=' +
+                lang +
+                '&z=16&output=embed'
+              }
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              tabIndex={-1}
+            />
+            <a
+              className="contact-map-link"
+              href={
+                'https://www.google.com/maps/search/?api=1&query=' +
+                encodeURIComponent(t.contact.mapQuery)
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t.contact.mapOpen}
+            >
+              <span>
+                {t.contact.mapOpen} <span aria-hidden="true">↗</span>
+              </span>
+            </a>
           </div>
         </section>
       </main>
-      <footer className="footer">
-        <div className="footer-top">
-          <a
-            className="brand footer-brand"
-            href="#"
-            aria-label={t.footer.homeAria}
-          >
-            <img src="/brand/askin-hukuk-logo.png" alt={t.footer.logoAlt} />
-          </a>
-          <div className="footer-nav">
-            {t.footer.nav.map(({ label, href }, i) => (
-              <a href={href} key={i}>
-                {label}
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <p>{t.footer.copyright}</p>
-          <p>{t.footer.tagline}</p>
-        </div>
-      </footer>
+      <Footer />
       <Reveals />
     </>
   );
