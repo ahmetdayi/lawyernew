@@ -83,31 +83,11 @@ export default function Home() {
             </a>
           </div>
           <div className="contact-details">
-            <p>
+            <p className="office">
               {t.contact.officeName}
               <br />
               {t.contact.officeTagline}
             </p>
-            <div className="contact-people">
-              {t.contact.persons.map((p) => (
-                <div className="contact-person" key={p.email}>
-                  <span className="contact-name">{p.name}</span>
-                  <a className="contact-email" href={'mailto:' + p.email}>
-                    {p.email.split('@')[0]}@
-                    <wbr />
-                    {p.email.split('@')[1]} ↗
-                  </a>
-                  <a
-                    className="contact-email"
-                    href={
-                      'tel:' + p.phone.replace(/\s/g, '').replace(/^0/, '+90')
-                    }
-                  >
-                    {p.phone} ↗
-                  </a>
-                </div>
-              ))}
-            </div>
             <p className="address">
               {t.contact.addressLines[0]}
               <br />
@@ -121,6 +101,24 @@ export default function Home() {
             >
               {t.contact.kvkkLabel} <span aria-hidden="true">↗</span>
             </a>
+          </div>
+          <div className="contact-people">
+            {t.contact.persons.map((p) => (
+              <div className="contact-person" key={p.email}>
+                <span className="contact-name">{p.name}</span>
+                <a className="contact-email" href={'mailto:' + p.email}>
+                  {p.email} ↗
+                </a>
+                <a
+                  className="contact-email"
+                  href={
+                    'tel:' + p.phone.replace(/\s/g, '').replace(/^0/, '+90')
+                  }
+                >
+                  {p.phone} ↗
+                </a>
+              </div>
+            ))}
           </div>
           <div className="contact-map reveal">
             <iframe
