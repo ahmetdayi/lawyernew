@@ -57,9 +57,7 @@ const jsonLd = {
     postalCode: '26090',
     addressCountry: 'TR',
   },
-  hasMap:
-    'https://www.google.com/maps/search/?api=1&query=' +
-    encodeURIComponent(contact.mapQuery),
+  hasMap: 'https://www.google.com/maps?cid=13108007210563735689',
   areaServed: { '@type': 'City', name: 'Eskişehir' },
   knowsAbout: expertise.areas.map((a) => a.title),
   employee: team.members.map((m, i) => ({

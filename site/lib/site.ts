@@ -1,1 +1,1 @@
-export const SITE_URL = 'https://lawyernew.ahmet-dayi-ceng.workers.dev';
+export const SITE_URL = 'https://askinhukuk.av.tr';

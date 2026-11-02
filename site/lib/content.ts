@@ -389,7 +389,7 @@ export const content: Record<Lang, SiteContent> = {
         'Odunpazarı / ESKİŞEHİR',
       ],
       mapQuery:
-        'Kurtuluş Mahallesi Cumhuriyet Bulvarı No:76 Odunpazarı Eskişehir',
+        'Kurtuluş Mahallesi Cumhuriyet Bulvarı No:76/3 Odunpazarı Eskişehir',
       mapTitle: 'Büro konumu — Google Haritalar',
       mapOpen: 'Google Haritalar’da aç',
       kvkkLabel: 'KVKK Aydınlatma Metni',
@@ -699,7 +699,7 @@ export const content: Record<Lang, SiteContent> = {
         'Odunpazarı / Eskişehir, Türkiye',
       ],
       mapQuery:
-        'Kurtuluş Mahallesi Cumhuriyet Bulvarı No:76 Odunpazarı Eskişehir',
+        'Kurtuluş Mahallesi Cumhuriyet Bulvarı No:76/3 Odunpazarı Eskişehir',
       mapTitle: 'Office location — Google Maps',
       mapOpen: 'Open in Google Maps',
       kvkkLabel: 'KVKK Privacy Notice',

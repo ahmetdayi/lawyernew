@@ -6,10 +6,9 @@ import Footer from '@/components/footer';
 import Publications from '@/components/publications';
 import Reveals from '@/components/reveals';
 import Team from '@/components/team';
-import { useContent, useLanguage } from '@/lib/i18n';
+import { useContent } from '@/lib/i18n';
 export default function Home() {
   const t = useContent();
-  const { lang } = useLanguage();
   return (
     <>
       <Header />
@@ -123,23 +122,14 @@ export default function Home() {
           <div className="contact-map reveal">
             <iframe
               title={t.contact.mapTitle}
-              src={
-                'https://maps.google.com/maps?q=' +
-                encodeURIComponent(t.contact.mapQuery) +
-                '&hl=' +
-                lang +
-                '&z=16&output=embed'
-              }
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d191.67483295322597!2d30.531240092759568!3d39.766658647778264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cc3d001f857379%3A0xb5e8ff1bdae91089!2sAvukat%20%C3%96mer%20Faruk%20A%C5%9EKIN!5e0!3m2!1sen!2str!4v1790193154530!5m2!1sen!2str"
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
+              referrerPolicy="strict-origin-when-cross-origin"
               tabIndex={-1}
             />
             <a
               className="contact-map-link"
-              href={
-                'https://www.google.com/maps/search/?api=1&query=' +
-                encodeURIComponent(t.contact.mapQuery)
-              }
+              href="https://www.google.com/maps?cid=13108007210563735689"
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t.contact.mapOpen}
