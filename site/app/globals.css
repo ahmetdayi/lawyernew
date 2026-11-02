@@ -257,9 +257,9 @@ em {
   inset: 0;
 }
 .scene-image {
-  background-image: url('/frames/v3-poster.jpg');
+  background-image: url('/frames/hero-diler.webp');
   background-size: cover;
-  background-position: 55% 50%;
+  background-position: 50% 40%;
 }
 .scene-shade {
   background:
@@ -344,9 +344,33 @@ em {
 }
 .manifesto-grid {
   display: grid;
-  grid-template-columns: 1.35fr 0.65fr;
-  gap: 12%;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+  gap: 9%;
   align-items: center;
+}
+.manifesto-photo {
+  position: relative;
+  isolation: isolate;
+  margin: 0 18px 18px 0;
+}
+.manifesto-photo::before {
+  content: '';
+  position: absolute;
+  inset: 18px -18px -18px 18px;
+  border: 1px solid var(--gold);
+  z-index: -1;
+}
+.manifesto-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  object-position: 50% 25%;
+}
+.manifesto-text {
+  margin-top: 36px;
+  max-width: 540px;
 }
 .manifesto h2 {
   font-size: clamp(34px, 3.5vw, 57px);
@@ -462,7 +486,8 @@ em {
   }
   .scene-image {
     bottom: 24%;
-    background-position: 55% center;
+    background-image: url('/frames/hero-diler-1000.webp');
+    background-position: 62% center;
   }
   .scene-shade {
     background: linear-gradient(
@@ -502,7 +527,16 @@ em {
   }
   .manifesto-grid {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 40px;
+  }
+  .manifesto-photo {
+    margin: 0 10px 10px 0;
+  }
+  .manifesto-photo::before {
+    inset: 10px -10px -10px 10px;
+  }
+  .manifesto-text {
+    margin-top: 28px;
   }
   .manifesto > .eyebrow {
     margin-bottom: 32px;

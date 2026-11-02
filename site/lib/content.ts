@@ -43,6 +43,7 @@ interface SiteContent {
     eyebrow: string;
     heading: [string, string];
     paragraphs: string[];
+    photoAlt: string;
     facts: Fact[];
   };
   expertise: {
@@ -127,6 +128,8 @@ export const content: Record<Lang, SiteContent> = {
         'Diler Hukuk & Danışmanlık, Nevşehir merkezli olarak bireysel ve kurumsal müvekkillerine hukuki danışmanlık ve dava takibi hizmeti sunmaktadır.',
         'Her dosyayı kendine özgü koşullarıyla ele alıyor; süreci açık iletişim, titiz hazırlık ve etik ilkelere bağlılıkla yürütüyoruz. Amacımız, hukuki riskleri önceden görmek ve müvekkillerimizin haklarını en etkili şekilde korumaktır.',
       ],
+      photoAlt:
+        'Cübbesiyle büro masasında oturan Diler Hukuk & Danışmanlık avukatı',
       facts: [
         { value: '5+', label: 'Yıllık deneyim' },
         { value: '100+', label: 'Sonuçlandırılan dosya' },
@@ -396,6 +399,8 @@ export const content: Record<Lang, SiteContent> = {
         'Based in Nevşehir, Diler Law & Consultancy provides legal counsel and litigation services to individual and corporate clients.',
         'We approach every case on its own terms, guided by open communication, meticulous preparation and a firm commitment to ethics. Our aim is to anticipate legal risks and protect our clients’ rights as effectively as possible.',
       ],
+      photoAlt:
+        'Diler Law & Consultancy attorney in robes, seated at the office desk',
       facts: [
         { value: '5+', label: 'Years of experience' },
         { value: '100+', label: 'Cases concluded' },

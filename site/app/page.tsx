@@ -17,17 +17,30 @@ export default function Home() {
         <section className="manifesto section-pad" id="hakkimizda">
           <div className="eyebrow">{t.manifesto.eyebrow}</div>
           <div className="manifesto-grid reveal">
-            <h2>
-              {t.manifesto.heading[0]}
-              <br />
-              <em>{t.manifesto.heading[1]}</em>
-            </h2>
+            <figure className="manifesto-photo">
+              <img
+                src="/about/portrait-900.webp"
+                srcSet="/about/portrait-600.webp 600w, /about/portrait-900.webp 900w"
+                sizes="(max-width: 767px) 88vw, 40vw"
+                width="900"
+                height="1125"
+                alt={t.manifesto.photoAlt}
+                loading="lazy"
+              />
+            </figure>
             <div>
-              {t.manifesto.paragraphs.map((p, i) => (
-                <p key={i} style={i > 0 ? { marginTop: 20 } : undefined}>
-                  {p}
-                </p>
-              ))}
+              <h2>
+                {t.manifesto.heading[0]}
+                <br />
+                <em>{t.manifesto.heading[1]}</em>
+              </h2>
+              <div className="manifesto-text">
+                {t.manifesto.paragraphs.map((p, i) => (
+                  <p key={i} style={i > 0 ? { marginTop: 20 } : undefined}>
+                    {p}
+                  </p>
+                ))}
+              </div>
             </div>
           </div>
           <div className="facts reveal">
