@@ -54,9 +54,19 @@ export default function Header() {
   return (
     <div className="header-wrap">
       <div className="top-bar">
-        <a href="tel:+905466229845">0 546 622 98 45</a>
-        <a href="mailto:omerfarukaskn@gmail.com">omerfarukaskn@gmail.com</a>
-        <div className="lang-switch" role="group" aria-label={t.header.langLabel}>
+        <a
+          href={
+            'tel:' + t.contact.phone.replace(/\s/g, '').replace(/^0/, '+90')
+          }
+        >
+          {t.contact.phone}
+        </a>
+        <a href={'mailto:' + t.contact.email}>{t.contact.email}</a>
+        <div
+          className="lang-switch"
+          role="group"
+          aria-label={t.header.langLabel}
+        >
           <button
             type="button"
             className={lang === 'tr' ? 'lang-flag active' : 'lang-flag'}
@@ -80,10 +90,15 @@ export default function Header() {
       <header className="site-header">
         <a href="/" className="brand" aria-label={t.header.homeAria}>
           <span className="brand-symbol">
-            <img src="/brand/askin-hukuk-icon.png" alt="" />
+            <img
+              src="/brand/diler-hukuk-icon.webp"
+              alt=""
+              width="80"
+              height="80"
+            />
           </span>
           <span>
-            AŞKIN<span className="brand-sub">HUKUK BÜROSU</span>
+            DİLER<span className="brand-sub">HUKUK &amp; DANIŞMANLIK</span>
           </span>
         </a>
         <button

@@ -2,7 +2,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { content, type Lang } from './content';
 export type { Lang };
-const STORAGE_KEY = 'askin-hukuk-lang';
+const STORAGE_KEY = 'diler-hukuk-lang';
 const LanguageContext = createContext<{
   lang: Lang;
   setLang: (lang: Lang) => void;

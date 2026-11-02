@@ -9,13 +9,9 @@ interface ApproachStep {
   quote: string;
   body: string;
 }
-interface TeamMember {
-  photo: string;
-  name: string;
-  role: string;
-  bar: string;
-  intro: string;
-  paragraphs: string[];
+interface Fact {
+  value: string;
+  label: string;
 }
 interface Article {
   slug: string;
@@ -47,6 +43,7 @@ interface SiteContent {
     eyebrow: string;
     heading: [string, string];
     paragraphs: string[];
+    facts: Fact[];
   };
   expertise: {
     eyebrow: string;
@@ -59,13 +56,6 @@ interface SiteContent {
     heading: [string, string];
     intro: string;
     steps: ApproachStep[];
-  };
-  team: {
-    eyebrow: string;
-    heading: [string, string];
-    brandMark: string;
-    cta: string;
-    members: TeamMember[];
   };
   publications: {
     eyebrow: string;
@@ -81,7 +71,10 @@ interface SiteContent {
     linkText: string;
     officeName: string;
     officeTagline: string;
-    persons: { name: string; email: string; phone: string }[];
+    email: string;
+    phone: string;
+    emailLabel: string;
+    phoneLabel: string;
     addressLines: [string, string];
     mapQuery: string;
     mapTitle: string;
@@ -101,17 +94,17 @@ interface SiteContent {
 export const content: Record<Lang, SiteContent> = {
   tr: {
     meta: {
-      title: 'Aşkın Hukuk Bürosu | Eskişehir Avukat',
+      title: 'Diler Hukuk & Danışmanlık | Nevşehir Avukat',
       description:
-        'Eskişehir’de miras, kamulaştırma, yabancılar, gayrimenkul, ceza, aile ve iş hukuku alanlarında hukuki danışmanlık ve temsil. Aşkın Hukuk Bürosu.',
+        'Nevşehir’de miras, kamulaştırma, yabancılar, gayrimenkul, ceza, aile, ticaret ve iş hukuku alanlarında hukuki danışmanlık ve temsil. Diler Hukuk & Danışmanlık.',
       skipLink: 'İçeriğe geç',
     },
     header: {
-      homeAria: 'Aşkın Hukuk ana sayfa',
+      homeAria: 'Diler Hukuk ana sayfa',
       nav: [
+        { label: 'Hakkımızda', id: 'hakkimizda' },
         { label: 'Çalışma Alanlarımız', id: 'uzmanlik' },
         { label: 'Yaklaşımımız', id: 'yaklasim' },
-        { label: 'Ekibimiz', id: 'ekip' },
         { label: 'Yayınlar', id: 'yayinlar' },
       ],
       menuOpen: 'Kapat −',
@@ -121,18 +114,23 @@ export const content: Record<Lang, SiteContent> = {
       langLabel: 'Dil seçimi',
     },
     hero: {
-      ariaLabel: 'Aşkın Hukuk Bürosu',
+      ariaLabel: 'Diler Hukuk & Danışmanlık',
       eyebrow: 'HUKUK · STRATEJİ · GÜVEN',
       heading: ['Adalet tesadüfe', 'bırakılmaz.'],
       scrollCue: 'Keşfetmek için kaydırın',
       note: 'HER ŞEY BİR DURUŞLA BAŞLAR.',
     },
     manifesto: {
-      eyebrow: '01 / AŞKIN HUKUK',
+      eyebrow: '01 / DİLER HUKUK',
       heading: ['Bugünün hukuki kararları,', 'yarının sonuçlarını belirler.'],
       paragraphs: [
-        'Av. Ömer Faruk Aşkın, Bursa ilinde doğmuş olup ilköğretimini burada tamamlamıştır. Lise eğitimini Bilecik Anadolu Lisesi’nde tamamladıktan sonra Kırıkkale Üniversitesi Hukuk Fakültesi’nde başladığı hukuk eğitimini başarıyla tamamlayarak 2023 yılında mezun olmuştur.',
-        'Avukatlık stajını Eskişehir’de tamamlamıştır. Stajının ardından kurduğu hukuk bürosuyla 2024 yılından beri Eskişehir’de serbest avukatlık yapmaktadır.',
+        'Diler Hukuk & Danışmanlık, Nevşehir merkezli olarak bireysel ve kurumsal müvekkillerine hukuki danışmanlık ve dava takibi hizmeti sunmaktadır.',
+        'Her dosyayı kendine özgü koşullarıyla ele alıyor; süreci açık iletişim, titiz hazırlık ve etik ilkelere bağlılıkla yürütüyoruz. Amacımız, hukuki riskleri önceden görmek ve müvekkillerimizin haklarını en etkili şekilde korumaktır.',
+      ],
+      facts: [
+        { value: '5+', label: 'Yıllık deneyim' },
+        { value: '100+', label: 'Sonuçlandırılan dosya' },
+        { value: '10+', label: 'Kurumsal müvekkil' },
       ],
     },
     expertise: {
@@ -210,46 +208,8 @@ export const content: Record<Lang, SiteContent> = {
         },
       ],
     },
-    team: {
-      eyebrow: '04 / EKİBİMİZ',
-      heading: ['Ortak bir ilke.', 'Birbirini tamamlayan bakışlar.'],
-      brandMark: 'AŞKIN / HUKUK BÜROSU',
-      cta: 'Hakkımda',
-      members: [
-        {
-          photo: '/team/omer-faruk-askin.jpg',
-          name: 'Av. Ömer Faruk Aşkın',
-          role: 'Kurucu Ortak',
-          bar: 'Eskişehir Barosu - 3313',
-          intro:
-            'Bursa doğumlu olup 2023 yılında hukuk eğitimini tamamlamış, 2024 yılından beri Eskişehir’de serbest avukatlık yapmaktadır.',
-          paragraphs: [
-            'Av. Ömer Faruk Aşkın, Bursa ilinde doğmuş olup ilköğretimini burada tamamlamıştır. Lise eğitimini Bilecik Anadolu Lisesi’nde tamamladıktan sonra Kırıkkale Üniversitesi Hukuk Fakültesi’nde başladığı hukuk eğitimini başarıyla tamamlayarak 2023 yılında mezun olmuştur.',
-            'Avukatlık stajını Eskişehir’de tamamlamıştır. Stajının ardından kurduğu hukuk bürosuyla 2024 yılından beri Eskişehir’de serbest avukatlık yapmaktadır.',
-          ],
-        },
-        {
-          photo: '/team/gulsum-burcu-ugur.jpg',
-          name: 'Av. Gülsüm Burcu Uğur',
-          role: 'Kurucu Ortak',
-          bar: 'Eskişehir Barosu - 3352',
-          intro:
-            'Eskişehir Barosu’na kayıtlı olarak serbest avukatlık faaliyetini sürdürmekte olup, 2025 yılından bu yana kendi hukuk ofisinde müvekkillerine hizmet vermektedir.',
-          paragraphs: [
-            'Avukat Gülsüm Burcu Uğur, Eskişehir Barosu’na kayıtlı olarak serbest avukatlık faaliyetini sürdürmekte olup, 2025 yılından bu yana kendi hukuk ofisinde müvekkillerine hizmet vermektedir. Çalışmalarını; stratejik yaklaşım, titiz analiz ve sonuç odaklılık ilkeleri doğrultusunda, her dosyanın özgün yapısına uygun şekilde yürütmektedir.',
-            'Lisans eğitimini %30 İngilizce eğitim dilinde Çağ Üniversitesi Hukuk Fakültesi’nde burslu olarak tamamlayan Gülsüm Burcu Uğur, akademik yolculuğunun bir bölümünü Orta Doğu Teknik Üniversitesi Eğitim Fakültesi’nde geçirmiş; üç yıllık bu sürecin ardından hukuk alanında uzmanlaşma yönünde bilinçli bir tercih yaparak eğitimine hukuk fakültesinde devam etmiştir. Bununla birlikte Ankara Üniversitesi Adalet programını; Anadolu Üniversitesi bünyesinde ise Bankacılık ve Sigortacılık ile İş Sağlığı ve Güvenliği ön lisans programlarını tamamlayarak çok disiplinli bir altyapı edinmiştir. İş Sağlığı ve Güvenliği alanında C sınıfı uzmanlık belgesine sahiptir.',
-            'Meslek hayatı öncesinde, 2019–2025 yılları arasında İçişleri Bakanlığı bünyesinde, Eskişehir Valiliği’nde görev almış; bu süreçte idari yapı, kamu işleyişi ve mevzuat uygulamalarına ilişkin derinlikli bir deneyim kazanmıştır. Bu birikim, özellikle idare hukuku alanındaki çalışmalarına güçlü bir perspektif kazandırmaktadır.',
-            'Faaliyet alanları; gayrimenkul hukuku, ceza hukuku, idare hukuku (özellikle kamu görevlilerine ilişkin uyuşmazlıklar), ticaret hukuku, borçlar hukuku, vergi hukuku, sosyal güvenlik hukuku ile aile ve çocuk hukukunu kapsamaktadır. Sosyal güvenlik hukuku alanında bilirkişilik temel eğitimini tamamlamış olup, nitelikli hesaplamalara dayalı teknik uzmanlık geliştirmiştir.',
-            'Mesleki yaklaşımında detaycılık ve analitik derinlik esastır. Her bir uyuşmazlık, yalnızca mevzuat düzleminde değil; yargı içtihatları ve doktrinel gelişmeler ışığında bütüncül olarak ele alınmaktadır. Hukukun sürekli gelişen bir alan olduğu bilinciyle hareket edilmekte; güncel bilgiye dayalı, öngörülü ve etkili çözümler üretilmektedir.',
-            'Çalışma anlayışı yalnızca sonuç odaklı bir yaklaşım ile sınırlı olmayıp; gerektiğinde dengeleyici ve uzlaşmacı yöntemleri de içeren çok katmanlı bir stratejiye dayanmaktadır. Müvekkil ilişkilerinde şeffaflık, dürüstlük ve güven temel ilkeler arasında yer almakta; süreçlere ilişkin gerçekçi değerlendirmelerle güven ilişkisi titizlikle korunmaktadır.',
-            'Ulaşılabilirlik ve açık iletişim, mesleki yaklaşımın ayrılmaz bir parçasıdır. Müvekkillerin sürecin her aşamasında kendilerini güvende ve doğru şekilde yönlendirilmiş hissetmeleri hedeflenmekte; hukuki temsilin yanı sıra güvenilir bir danışmanlık anlayışı sunulmaktadır.',
-            'İleri düzeyde İngilizce bilmekte olup, Almanca çalışmalarına devam etmektedir. Mesleki gelişim kapsamında; icra ve iflas hukuku, tüketici hukuku, kira hukuku, göç hukuku, iş hukuku uygulamaları, iş kazalarından doğan uyuşmazlıklar, tüketici temsil davaları, sosyal güvenlik hukuku, tapu iptal ve tescil davaları, etkili iletişim ve hukuk-bilişim alanlarında çeşitli eğitim ve sertifika programlarını tamamlamıştır.',
-          ],
-        },
-      ],
-    },
     publications: {
-      eyebrow: '05 / YAYINLAR',
+      eyebrow: '04 / YAYINLAR',
       heading: 'Hukuka dair.',
       intro: 'Hukuk dünyasına dair yazılar & bilgiler',
       note: 'Bu yazı genel bilgilendirme amacıyla hazırlanmıştır; somut bir olaya ilişkin hukuki değerlendirme veya hukuki danışmanlık niteliği taşımaz.',
@@ -353,7 +313,8 @@ export const content: Record<Lang, SiteContent> = {
         {
           slug: 'aihm-basvurulari-ve-yeniden-yargilama',
           category: 'İNSAN HAKLARI HUKUKU',
-          title: 'AİHM Başvuruları ve AİHM Kararları Sonrasında Yeniden Yargılama',
+          title:
+            'AİHM Başvuruları ve AİHM Kararları Sonrasında Yeniden Yargılama',
           time: '4 dk okuma',
           intro:
             "Avrupa İnsan Hakları Mahkemesi'ne (AİHM) bireysel başvuru, Avrupa İnsan Hakları Sözleşmesi (AİHS) ile güvence altına alınan temel hak ve özgürlüklerin ulusal hukukta etkili biçimde korunamadığı durumlarda başvurulabilecek uluslararası nitelikte bir insan hakları denetim mekanizmasıdır.",
@@ -367,29 +328,20 @@ export const content: Record<Lang, SiteContent> = {
       ],
     },
     contact: {
-      eyebrow: '06 / İLETİŞİM',
+      eyebrow: '05 / İLETİŞİM',
       heading: ['Bir konuşmayla', 'başlayalım.'],
       linkText: 'Hukuki sürecinizi birlikte değerlendirelim',
-      officeName: 'AŞKIN HUKUK BÜROSU',
+      officeName: 'DİLER HUKUK & DANIŞMANLIK',
       officeTagline: 'Hukuki danışmanlık & temsil',
-      persons: [
-        {
-          name: 'Av. Ömer Faruk Aşkın',
-          email: 'omerfarukaskn@gmail.com',
-          phone: '0 546 622 98 45',
-        },
-        {
-          name: 'Av. Gülsüm Burcu Uğur',
-          email: 'avgulsumburcu@gmail.com',
-          phone: '0 536 270 01 50',
-        },
-      ],
+      email: 'avdenizdiler@yandex.com',
+      phone: '0 506 560 03 50',
+      emailLabel: 'E-posta',
+      phoneLabel: 'Telefon',
       addressLines: [
-        'Kurtuluş Mahallesi Cumhuriyet Bulvarı No:76/3',
-        'Odunpazarı / ESKİŞEHİR',
+        'Herikli Mah. Mustafa Parmaksız Cd. No:29/7 (Doğa İş Merkezi)',
+        'Merkez / NEVŞEHİR',
       ],
-      mapQuery:
-        'Kurtuluş Mahallesi Cumhuriyet Bulvarı No:76/3 Odunpazarı Eskişehir',
+      mapQuery: 'Doğa İş Merkezi, Mustafa Parmaksız Cd. No:29, Nevşehir',
       mapTitle: 'Büro konumu — Google Haritalar',
       mapOpen: 'Google Haritalar’da aç',
       kvkkLabel: 'KVKK Aydınlatma Metni',
@@ -397,31 +349,31 @@ export const content: Record<Lang, SiteContent> = {
     },
     footer: {
       homeAria: 'Başa dön',
-      logoAlt: 'Avukat Ömer Faruk Aşkın',
+      logoAlt: 'Diler Hukuk & Danışmanlık logosu',
       nav: [
         { label: 'Hakkımızda', href: '/#hakkimizda' },
         { label: 'Çalışma Alanlarımız', href: '/#uzmanlik' },
         { label: 'İletişim', href: '/#iletisim' },
         { label: 'Başa dön ↑', href: '#' },
       ],
-      copyright: '© 2026 Aşkın Hukuk.',
+      copyright: '© 2026 Diler Hukuk & Danışmanlık.',
       tagline: 'Hukuk · Strateji · Güven',
     },
     common: { close: 'Kapat ×' },
   },
   en: {
     meta: {
-      title: 'Aşkın Law Office | Attorneys in Eskişehir',
+      title: 'Diler Law & Consultancy | Law Firm in Nevşehir',
       description:
-        'Legal counsel and representation in Eskişehir, Türkiye: inheritance, expropriation, foreigners’ law, real estate, criminal, family and labor law. Aşkın Law Office.',
+        'Legal counsel and representation in Nevşehir, Türkiye: inheritance, expropriation, foreigners’ law, real estate, criminal, family, commercial and labor law. Diler Law & Consultancy.',
       skipLink: 'Skip to content',
     },
     header: {
-      homeAria: 'Aşkın Law homepage',
+      homeAria: 'Diler Law homepage',
       nav: [
+        { label: 'About Us', id: 'hakkimizda' },
         { label: 'Practice Areas', id: 'uzmanlik' },
         { label: 'Our Approach', id: 'yaklasim' },
-        { label: 'Our Team', id: 'ekip' },
         { label: 'Insights', id: 'yayinlar' },
       ],
       menuOpen: 'Close −',
@@ -431,18 +383,23 @@ export const content: Record<Lang, SiteContent> = {
       langLabel: 'Language selection',
     },
     hero: {
-      ariaLabel: 'Aşkın Law Office',
+      ariaLabel: 'Diler Law & Consultancy',
       eyebrow: 'LAW · STRATEGY · TRUST',
       heading: ['Justice is never', 'left to chance.'],
       scrollCue: 'Scroll to explore',
       note: 'IT ALL STARTS WITH TAKING A STAND.',
     },
     manifesto: {
-      eyebrow: '01 / AŞKIN LAW',
+      eyebrow: '01 / DİLER LAW',
       heading: ['Today’s legal decisions', 'shape tomorrow’s outcomes.'],
       paragraphs: [
-        'Att. Ömer Faruk Aşkın was born in Bursa, where he completed his primary education. After finishing high school at Bilecik Anadolu High School, he pursued his legal education at Kırıkkale University Faculty of Law, graduating successfully in 2023.',
-        'He completed his legal internship in Eskişehir. Since founding his own law office following his internship, he has been practicing independently in Eskişehir since 2024.',
+        'Based in Nevşehir, Diler Law & Consultancy provides legal counsel and litigation services to individual and corporate clients.',
+        'We approach every case on its own terms, guided by open communication, meticulous preparation and a firm commitment to ethics. Our aim is to anticipate legal risks and protect our clients’ rights as effectively as possible.',
+      ],
+      facts: [
+        { value: '5+', label: 'Years of experience' },
+        { value: '100+', label: 'Cases concluded' },
+        { value: '10+', label: 'Corporate clients' },
       ],
     },
     expertise: {
@@ -508,7 +465,8 @@ export const content: Record<Lang, SiteContent> = {
         {
           n: '02',
           title: 'Strategy',
-          quote: 'The right steps are taken with a plan that leads to the goal.',
+          quote:
+            'The right steps are taken with a plan that leads to the goal.',
           body: 'Based on the findings from our analysis, we design bespoke legal roadmaps that lead our clients to their goals by the fastest and safest route.',
         },
         {
@@ -520,46 +478,8 @@ export const content: Record<Lang, SiteContent> = {
         },
       ],
     },
-    team: {
-      eyebrow: '04 / OUR TEAM',
-      heading: ['A shared principle.', 'Complementary perspectives.'],
-      brandMark: 'AŞKIN / LAW OFFICE',
-      cta: 'About me',
-      members: [
-        {
-          photo: '/team/omer-faruk-askin.jpg',
-          name: 'Att. Ömer Faruk Aşkın',
-          role: 'Founding Partner',
-          bar: 'Eskişehir Bar Association - 3313',
-          intro:
-            'Born in Bursa, he completed his legal education in 2023 and has been practicing independently in Eskişehir since 2024.',
-          paragraphs: [
-            'Att. Ömer Faruk Aşkın was born in Bursa, where he completed his primary education. After finishing high school at Bilecik Anadolu High School, he pursued his legal education at Kırıkkale University Faculty of Law, graduating successfully in 2023.',
-            'He completed his legal internship in Eskişehir. Since founding his own law office following his internship, he has been practicing independently in Eskişehir since 2024.',
-          ],
-        },
-        {
-          photo: '/team/gulsum-burcu-ugur.jpg',
-          name: 'Att. Gülsüm Burcu Uğur',
-          role: 'Founding Partner',
-          bar: 'Eskişehir Bar Association - 3352',
-          intro:
-            'She is registered with the Eskişehir Bar Association and has been serving clients at her own law office since 2025.',
-          paragraphs: [
-            'Attorney Gülsüm Burcu Uğur is registered with the Eskişehir Bar Association and practices independently, serving clients at her own law office since 2025. She conducts her work in line with the principles of strategic thinking, meticulous analysis, and a results-oriented approach, tailored to the unique structure of each case.',
-            'Gülsüm Burcu Uğur completed her undergraduate studies on a scholarship at Çağ University Faculty of Law, a program taught 30% in English. She spent part of her academic journey at the Middle East Technical University Faculty of Education; after three years there, she made a conscious decision to specialize in law and continued her education at the faculty of law. She also built a multidisciplinary foundation by completing the Justice associate degree program at Ankara University, along with associate degree programs in Banking and Insurance, and Occupational Health and Safety at Anadolu University. She holds a Class C specialist certificate in Occupational Health and Safety.',
-            'Prior to her legal career, she worked at the Eskişehir Governorship under the Ministry of Interior between 2019 and 2025, gaining in-depth experience in administrative structure, public governance, and the application of legislation. This background brings a strong perspective to her work, particularly in the field of administrative law.',
-            'Her practice areas include real estate law, criminal law, administrative law (particularly disputes involving public officials), commercial law, law of obligations, tax law, social security law, and family and child law. She has completed foundational training in expert witnessing in the field of social security law and has developed technical expertise based on qualified calculations.',
-            'Attention to detail and analytical depth are central to her professional approach. Every dispute is handled holistically, not only at the level of legislation but also in light of judicial precedent and doctrinal developments. Acting with the awareness that law is a constantly evolving field, she produces forward-looking and effective solutions grounded in current knowledge.',
-            'Her working philosophy is not limited to a results-oriented approach alone; it rests on a multi-layered strategy that, where appropriate, also incorporates balancing and conciliatory methods. Transparency, honesty, and trust are among the core principles in her client relationships, and the relationship of trust is carefully preserved through realistic assessments of each process.',
-            'Accessibility and open communication are an integral part of her professional approach. The aim is for clients to feel safe and correctly guided at every stage of the process, with a reliable advisory approach offered alongside legal representation.',
-            'She has an advanced level of English and continues to study German. As part of her professional development, she has completed various training and certificate programs in enforcement and bankruptcy law, consumer law, tenancy law, migration law, labor law practice, disputes arising from workplace accidents, consumer representation actions, social security law, title deed cancellation and registration actions, effective communication, and law and information technology.',
-          ],
-        },
-      ],
-    },
     publications: {
-      eyebrow: '05 / INSIGHTS',
+      eyebrow: '04 / INSIGHTS',
       heading: 'On the law.',
       intro: 'Articles & insights from the world of law',
       note: 'This article is provided for general information only; it is not a legal assessment of any specific matter and does not constitute legal advice.',
@@ -593,7 +513,7 @@ export const content: Record<Lang, SiteContent> = {
             "Expropriation, frequently encountered in road, hospital, school, energy transmission, urban regeneration, and infrastructure projects, is of great importance as it directly affects individuals' property rights. In Turkey, expropriation proceedings are primarily carried out under Article 46 of the Constitution and Law No. 2942 on Expropriation.",
             'Legal Basis for Expropriation: Under the Constitution, the state may expropriate privately owned real property where required by the public interest. However, exercising this authority requires that certain conditions be fully satisfied. Although expropriation is a unilateral administrative act, it constitutes an interference with the right to property and is therefore subject to strict judicial review.',
             'What Are the Conditions for Expropriation?: For a property to be lawfully expropriated, the following conditions must be met: a public interest decision must have been made, the expropriation must be carried out by the competent administrative authority, the compensation must be determined at the property’s true value, the compensation must be paid to the rightful owner, and the procedures prescribed by law must be followed. If any of these conditions is missing, the expropriation may be subject to annulment. For this reason, it is important that these processes be conducted with professional legal support.',
-            "How Does the Expropriation Process Work?: The expropriation process generally consists of the following stages: the relevant administrative authority adopts a public interest decision; the property to be expropriated is identified and its land registry records are examined; the administration determines the value of the property and negotiates a purchase with the owner; if the parties fail to reach an agreement, the administration files an action for determination of compensation and registration before the Civil Court of First Instance; and, upon payment of the compensation determined by the court, the property is registered in the name of the administration.",
+            'How Does the Expropriation Process Work?: The expropriation process generally consists of the following stages: the relevant administrative authority adopts a public interest decision; the property to be expropriated is identified and its land registry records are examined; the administration determines the value of the property and negotiates a purchase with the owner; if the parties fail to reach an agreement, the administration files an action for determination of compensation and registration before the Civil Court of First Instance; and, upon payment of the compensation determined by the court, the property is registered in the name of the administration.',
             'What Is Urgent Expropriation?: Urgent expropriation is an exceptional method applied where the public interest cannot tolerate delay. It typically arises in energy projects, disaster situations, and major infrastructure investments. Under this method, the administration may take rapid possession of the property by court order. However, urgent expropriation is likewise subject to judicial review, and property owners retain the right to bring legal action.',
             'De Facto Seizure Actions: "De facto (unauthorized) seizure" occurs when the administration physically interferes with a property without carrying out any expropriation procedure. In such cases, the property owner may pursue legal remedies such as a compensation claim, a claim for payment, or an action to prevent the interference. De facto seizure actions are among the most commonly encountered administrative law disputes in practice.',
             'Why Is Legal Support Important in Expropriation Cases?: Expropriation proceedings involve technically and legally complex processes. Having the process followed by an expert lawyer is of great importance for determining the property’s true value, identifying procedural irregularities, and preventing loss of rights. Obtaining professional legal support, particularly in compensation-increase actions, expropriation annulment actions, urgent expropriation proceedings, and de facto seizure actions, ensures the effective protection of property rights.',
@@ -610,9 +530,9 @@ export const content: Record<Lang, SiteContent> = {
           paragraphs: [
             "In Turkey, foreigners' law covers many important matters such as residence permits, work permits, deportation procedures, citizenship applications, and international protection processes. The rise in recent years in the number of foreign nationals living in Turkey has significantly increased the need for legal advice in this field. Incomplete or erroneous actions during application processes, in particular, can lead to serious loss of rights.",
             "Scope of Foreigners' Law in Turkey: The core rules governing foreigners' law in Turkey are set out primarily in Law No. 6458 on Foreigners and International Protection, along with various other legislative provisions. Within this framework, foreign nationals' entry into and exit from Turkey, residence permits, work permits, deportation decisions, restriction codes, citizenship applications, and international and temporary protection procedures are all subject to legal oversight.",
-            "Work Permit Applications: Foreign nationals wishing to work in Turkey are required to obtain a work permit. Work permit applications are processed by the Ministry of Labor and Social Security. Applications may be rejected due to missing documents, procedural non-compliance, or failure to meet company criteria. For this reason, it is important that work permit processes be conducted with professional legal support.",
+            'Work Permit Applications: Foreign nationals wishing to work in Turkey are required to obtain a work permit. Work permit applications are processed by the Ministry of Labor and Social Security. Applications may be rejected due to missing documents, procedural non-compliance, or failure to meet company criteria. For this reason, it is important that work permit processes be conducted with professional legal support.',
             'Deportation Decisions and Restriction Codes: Foreign nationals may be subject to a deportation decision for various reasons. Restriction codes, which amount to an entry ban, may also be applied. Reasons such as visa violations, unauthorized work, grounds of public order, or the use of forged documents can, in particular, lead to deportation proceedings. However, not every deportation decision is lawful; it is possible to bring an annulment action against such administrative acts and to request a stay of execution.',
-            "Turkish Citizenship Applications: Foreign nationals meeting certain conditions may apply for Turkish citizenship. Citizenship applications can be made through investment, through marriage, or under exceptional citizenship provisions. The process may be prolonged due to incomplete documentation or security background checks. For this reason, the legal process should be carefully followed with the assistance of a lawyer.",
+            'Turkish Citizenship Applications: Foreign nationals meeting certain conditions may apply for Turkish citizenship. Citizenship applications can be made through investment, through marriage, or under exceptional citizenship provisions. The process may be prolonged due to incomplete documentation or security background checks. For this reason, the legal process should be carefully followed with the assistance of a lawyer.',
             'Why Is Legal Support Important in Foreigners’ Law?: Procedural errors in foreigners’ law matters can lead to serious consequences such as the refusal of a residence permit, a deportation decision, or an entry ban. For this reason, having application and litigation processes carried out with the support of a lawyer specialized in this field is of great importance for preventing loss of rights. In particular, preparing administrative applications, conducting litigation, and correctly using objection mechanisms all require professional legal knowledge.',
           ],
         },
@@ -677,29 +597,20 @@ export const content: Record<Lang, SiteContent> = {
       ],
     },
     contact: {
-      eyebrow: '06 / CONTACT',
+      eyebrow: '05 / CONTACT',
       heading: ['Let’s start with', 'a conversation.'],
       linkText: 'Let’s assess your legal matter together',
-      officeName: 'AŞKIN LAW OFFICE',
+      officeName: 'DİLER LAW & CONSULTANCY',
       officeTagline: 'Legal counsel & representation',
-      persons: [
-        {
-          name: 'Att. Ömer Faruk Aşkın',
-          email: 'omerfarukaskn@gmail.com',
-          phone: '0 546 622 98 45',
-        },
-        {
-          name: 'Att. Gülsüm Burcu Uğur',
-          email: 'avgulsumburcu@gmail.com',
-          phone: '0 536 270 01 50',
-        },
-      ],
+      email: 'avdenizdiler@yandex.com',
+      phone: '0 506 560 03 50',
+      emailLabel: 'Email',
+      phoneLabel: 'Phone',
       addressLines: [
-        'Kurtuluş Mahallesi Cumhuriyet Bulvarı No:76/3',
-        'Odunpazarı / Eskişehir, Türkiye',
+        'Herikli Mah. Mustafa Parmaksız Cd. No:29/7 (Doğa İş Merkezi)',
+        'Merkez / Nevşehir, Türkiye',
       ],
-      mapQuery:
-        'Kurtuluş Mahallesi Cumhuriyet Bulvarı No:76/3 Odunpazarı Eskişehir',
+      mapQuery: 'Doğa İş Merkezi, Mustafa Parmaksız Cd. No:29, Nevşehir',
       mapTitle: 'Office location — Google Maps',
       mapOpen: 'Open in Google Maps',
       kvkkLabel: 'KVKK Privacy Notice',
@@ -707,14 +618,14 @@ export const content: Record<Lang, SiteContent> = {
     },
     footer: {
       homeAria: 'Back to top',
-      logoAlt: 'Attorney Ömer Faruk Aşkın',
+      logoAlt: 'Diler Law & Consultancy logo',
       nav: [
         { label: 'About Us', href: '/#hakkimizda' },
         { label: 'Practice Areas', href: '/#uzmanlik' },
         { label: 'Contact', href: '/#iletisim' },
         { label: 'Back to top ↑', href: '#' },
       ],
-      copyright: '© 2026 Aşkın Law.',
+      copyright: '© 2026 Diler Law & Consultancy.',
       tagline: 'Law · Strategy · Trust',
     },
     common: { close: 'Close ×' },

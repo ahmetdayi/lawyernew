@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const a = articles.find((x) => x.slug === slug);
   if (!a) return {};
-  const title = a.title + ' | Aşkın Hukuk Bürosu';
+  const title = a.title + ' | Diler Hukuk & Danışmanlık';
   const description = clip(a.intro, 160);
   const path = '/yayinlar/' + slug;
   return {
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: 'article',
       locale: 'tr_TR',
       url: path,
-      siteName: 'Aşkın Hukuk Bürosu',
+      siteName: 'Diler Hukuk & Danışmanlık',
       title,
       description,
       images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
@@ -52,11 +52,11 @@ export default async function ArticlePage({ params }: Props) {
   if (!a) notFound();
   const publisher = {
     '@type': 'Organization',
-    name: 'Aşkın Hukuk Bürosu',
+    name: 'Diler Hukuk & Danışmanlık',
     url: SITE_URL + '/',
     logo: {
       '@type': 'ImageObject',
-      url: SITE_URL + '/brand/askin-hukuk-logo.png',
+      url: SITE_URL + '/brand/diler-hukuk-logo.png',
     },
   };
   const jsonLd = {

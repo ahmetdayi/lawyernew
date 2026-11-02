@@ -1,1 +1,1 @@
-export const SITE_URL = 'https://askinhukuk.av.tr';
+export const SITE_URL = 'https://dilerhukuk.com';

@@ -5,8 +5,17 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-top">
-        <a className="brand footer-brand" href="/" aria-label={t.footer.homeAria}>
-          <img src="/brand/askin-hukuk-logo.png" alt={t.footer.logoAlt} />
+        <a
+          className="brand footer-brand"
+          href="/"
+          aria-label={t.footer.homeAria}
+        >
+          <img
+            src="/brand/diler-hukuk-logo.webp"
+            alt={t.footer.logoAlt}
+            width="360"
+            height="360"
+          />
         </a>
         <div className="footer-nav">
           {t.footer.nav.map(({ label, href }, i) => (
