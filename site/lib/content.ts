@@ -123,10 +123,11 @@ export const content: Record<Lang, SiteContent> = {
     },
     manifesto: {
       eyebrow: '01 / DİLER HUKUK',
-      heading: ['Bugünün hukuki kararları,', 'yarının sonuçlarını belirler.'],
+      heading: ['Av. Deniz DİLER', 'Kurucu Avukat'],
       paragraphs: [
-        'Diler Hukuk & Danışmanlık, Nevşehir merkezli olarak bireysel ve kurumsal müvekkillerine hukuki danışmanlık ve dava takibi hizmeti sunmaktadır.',
-        'Her dosyayı kendine özgü koşullarıyla ele alıyor; süreci açık iletişim, titiz hazırlık ve etik ilkelere bağlılıkla yürütüyoruz. Amacımız, hukuki riskleri önceden görmek ve müvekkillerimizin haklarını en etkili şekilde korumaktır.',
+        '1998 yılında Ankara Çankaya’da dünyaya gelen Av. Deniz DİLER, ilk ve orta öğrenimini Nevşehir’de tamamlamıştır. İlköğrenimini Avanos Mehmet Akif Ersoy Ortaokulu’nda, ortaöğrenimini Altınyıldız Koleji’nde tamamladıktan sonra lise eğitiminin ilk yıllarını Nevşehir Merkez Anadolu Lisesi’nde sürdürmüş, 12. sınıf eğitimini ise Final Temel Lisesi’nde tamamlayarak lise mezuniyetini almıştır.',
+        'Hukuk alanındaki akademik kariyerine 2017 yılında Selçuk Üniversitesi Hukuk Fakültesi’nde başlayan Av. Diler, 9 Ağustos 2021 tarihinde bu fakülteden mezun olmuştur. Yasal avukatlık stajını başarıyla tamamlamasının ardından, 15 Aralık 2022 tarihinde ruhsatnamesini alarak Nevşehir Barosu bünyesinde serbest avukatlığa adım atmıştır.',
+        'Kurucusu olduğu DİLER HUKUK & DANIŞMANLIK bünyesinde; başta Ceza Hukuku ve Kira Hukuku olmak üzere, Aile Hukuku, Gayrimenkul Uyuşmazlıkları ve şirketler danışmanlığı gibi hukukun temel alanlarında müvekkillerine nitelikli avukatlık ve hukuki danışmanlık hizmeti sunmaktadır. Mesleki faaliyetlerini dürüstlük, şeffaflık ve hukukun üstünlüğü ilkelerinden ödün vermeden, Nevşehir merkezli ofisinde sürdürmektedir.',
       ],
       photoAlt:
         'Cübbesiyle büro masasında oturan Diler Hukuk & Danışmanlık avukatı',
@@ -394,10 +395,11 @@ export const content: Record<Lang, SiteContent> = {
     },
     manifesto: {
       eyebrow: '01 / DİLER LAW',
-      heading: ['Today’s legal decisions', 'shape tomorrow’s outcomes.'],
+      heading: ['Att. Deniz DİLER', 'Founding Attorney'],
       paragraphs: [
-        'Based in Nevşehir, Diler Law & Consultancy provides legal counsel and litigation services to individual and corporate clients.',
-        'We approach every case on its own terms, guided by open communication, meticulous preparation and a firm commitment to ethics. Our aim is to anticipate legal risks and protect our clients’ rights as effectively as possible.',
+        'Born in Çankaya, Ankara in 1998, Att. Deniz DİLER completed primary and secondary education in Nevşehir. After attending Avanos Mehmet Akif Ersoy Middle School and Altınyıldız College, Diler spent the first years of high school at Nevşehir Merkez Anatolian High School and completed the 12th grade at Final Temel High School, graduating from there.',
+        'Att. Diler began legal studies at Selçuk University Faculty of Law in 2017 and graduated on 9 August 2021. After successfully completing the statutory legal internship, Diler obtained a licence to practise on 15 December 2022 and began independent practice as a member of the Nevşehir Bar Association.',
+        'At Diler Law & Consultancy, which Diler founded, clients receive qualified legal representation and counsel across core areas of law — chiefly Criminal Law and Lease Law, as well as Family Law, Real Estate Disputes and corporate advisory. The practice is carried out from the firm’s Nevşehir-based office, without compromise on the principles of integrity, transparency and the rule of law.',
       ],
       photoAlt:
         'Diler Law & Consultancy attorney in robes, seated at the office desk',
