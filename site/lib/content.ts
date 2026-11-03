@@ -116,7 +116,7 @@ export const content: Record<Lang, SiteContent> = {
     },
     hero: {
       ariaLabel: 'Diler Hukuk & Danışmanlık',
-      eyebrow: 'HUKUK · STRATEJİ · GÜVEN',
+      eyebrow: 'NEVŞEHİR AVUKAT · HUKUK & DANIŞMANLIK',
       heading: ['Adalet tesadüfe', 'bırakılmaz.'],
       scrollCue: 'Keşfetmek için kaydırın',
       note: 'HER ŞEY BİR DURUŞLA BAŞLAR.',
@@ -388,7 +388,7 @@ export const content: Record<Lang, SiteContent> = {
     },
     hero: {
       ariaLabel: 'Diler Law & Consultancy',
-      eyebrow: 'LAW · STRATEGY · TRUST',
+      eyebrow: 'NEVŞEHİR ATTORNEY · LAW & CONSULTANCY',
       heading: ['Justice is never', 'left to chance.'],
       scrollCue: 'Scroll to explore',
       note: 'IT ALL STARTS WITH TAKING A STAND.',

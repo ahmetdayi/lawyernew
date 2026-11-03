@@ -7,10 +7,10 @@ export default function CinematicHero() {
       <div className="scene-image" />
       <div className="scene-shade" />
       <div className="hero-copy opening-copy">
-        <p className="eyebrow">
-          <span className="gold-line" /> {t.hero.eyebrow}
-        </p>
         <h1>
+          <span className="eyebrow">
+            <span className="gold-line" /> {t.hero.eyebrow}
+          </span>{' '}
           {t.hero.heading[0]}
           <br />
           <em>{t.hero.heading[1]}</em>

@@ -296,6 +296,9 @@ em {
   margin-bottom: 29px;
   color: #d8ccb6;
 }
+.hero-copy h1 .eyebrow {
+  font-family: Arial, Helvetica, sans-serif;
+}
 .hero-copy h1,
 .hero-copy h2 {
   font-size: clamp(48px, 4.5vw, 76px);
